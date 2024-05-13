@@ -207,3 +207,11 @@ export const authFormSchema = (type: string) => z.object({
   dateOfBirth: type ==='sign-in'? z.string().optional() : z.string().min(3),
   ssn: type ==='sign-in'? z.string().optional() : z.string().min(3),
 });
+
+export const transferFormSchema= () => z.object({
+  email: z.string().email('Invalid email address'),
+  name: z.string().min(4, 'Transfer note should be more than five characters.'),
+  amount: z.string().min(4, 'Amount is too short'),
+  senderBank: z.string().min(4, 'Please enter a valid bank account'),
+  sharableId: z.string().min(8, 'Please enter a valid sharable Id')
+});

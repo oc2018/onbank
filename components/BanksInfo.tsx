@@ -1,6 +1,7 @@
 'use client';
 
-import { cn, formUrlQuery, getAccountTypeColors } from "@/lib/utils";
+import { cn, formUrlQuery, formatAmount, getAccountTypeColors } from "@/lib/utils";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 
 
@@ -16,7 +17,7 @@ const BanksInfo = ({ account, appwriteItemId, type}: BankInfoProps) => {
             key: 'id',
             value: account?.appwriteItemId,
         });
-        router.push(newUrl, { scoll: false });
+        router.push(newUrl, { scroll: false });
     }
 
     const colors = getAccountTypeColors(account?.type as AccountTypes);
@@ -29,9 +30,32 @@ const BanksInfo = ({ account, appwriteItemId, type}: BankInfoProps) => {
             "hover:shadow-sm cursor-pointer": type === "card",
         })}
     >
-
+        <figure>
+            <Image
+            src="/icons/connect-bank.svg"
+            width={20}
+            height={20}
+            alt={account.subtype}
+            className="m-2 min-w-5"
+            />
+        </figure>
+        <div className="flex w-full flex-1 flex-col justify-center gap-1">
+            <div className="bank-info_content">
+                <h2 className={`text-16 line-clamp-1 flex-1 font-bold text-blue-900 ${colors.title}`} >
+                    {account.name}
+                </h2>
+                { type == "full" &&(
+                    <p className={`text-12 rounded-full px-3 py-1 font-medium text-blue-700 ${colors.subText} ${colors.lightBg}`}>
+                        { account.subtype }
+                    </p>
+                )}
+            </div>
+            <p className={`text-16 font-medium text-blue-700 ${colors.subText}`}>
+                {formatAmount(account.availableBalance)}
+            </p>
+        </div>
     </div>
   )
 }
 
-export default BanksInfo
+export default BanksInfo;

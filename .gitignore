@@ -2,7 +2,7 @@
 
 
 #environment variables
-# .env
+.env
 
 # dependencies
 /node_modules

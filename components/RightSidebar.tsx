@@ -40,7 +40,7 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps ) => {
                         />
                     </div>
                     {banks[1] && (
-                        <div className='absolute right-0 top-10 z-0 w-[90%]'>
+                        <div className='absolute right-1 top-8 z-0 w-[90%]'>
                             <BankCard 
                              key={banks[0].$id}
                              account={banks[0]}
