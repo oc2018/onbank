@@ -113,12 +113,12 @@ const AuthForm = ({ type }: { type: string }) => {
                         <CustomFormField control={ form.control } name='city' label='City' />
                         </div>
                         <div className='flex gap-4'>
-                            <CustomFormField control={ form.control } name='state' label='State' placeholder='Two letter abbreviation of the state.' />
-                            <CustomFormField control={ form.control } name='postalCode' label='Postal Code' placeholder='Five-digit ZIP or ZIP + 4 code. e.g. 50314.'/>
+                            <CustomFormField control={ form.control } name='state' label='State' placeholder='Two letter abbreviation.' />
+                            <CustomFormField control={ form.control } name='postalCode' label='Postal Code' placeholder='Five-digit ZIP'/>
                         </div>
                         <div className='flex gap-4'>
                             <CustomFormField control={ form.control } name='dateOfBirth' label='Date of Birth' placeholder='YYYY-MM-DD' />
-                            <CustomFormField control={ form.control } name='ssn' label='SSN' placeholder='Last four or full 9 digits'/>
+                            <CustomFormField control={ form.control } name='ssn' label='SSN' placeholder='Last 4 or full 9 digits'/>
                         </div>
                         </>
                     )}
