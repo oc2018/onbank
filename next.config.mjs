@@ -7,7 +7,7 @@ const nextConfig = {
     eslint: {
         ignoreBuildErrors: true,
     }
-};
+}; 
 
 export default withSentryConfig(nextConfig, {
 // For all available options, see:
