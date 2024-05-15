@@ -7,7 +7,7 @@ import {
     TableRow,
 } from '@/components/ui/table'
 import { transactionCategoryStyles } from '@/constants'
-import { cn, formatAmount, formatDateTime, getTransactionStatus, removeSpecialCharacters } from '@/lib/utils'
+import { cn, formatAmountWithoutCurrency, formatDateTime, getTransactionStatus, removeSpecialCharacters } from '@/lib/utils'
 
 const CategoryBadge = ({ category }: CategoryBadgeProps) => {
     const {
@@ -41,7 +41,7 @@ const TransactionsTable = ({transactions }: TransactionHistoryTableProps) => {
         <TableBody>
         {transactions?.map((t: Transaction) => {
             const status = getTransactionStatus(new Date(t.date));
-            const amount = formatAmount(t.amount);
+            const amount = formatAmountWithoutCurrency(t.amount);
 
             const isDebit = t.type === 'debit';
             const isCredit = t.type === 'credit';

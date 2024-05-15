@@ -76,6 +76,15 @@ export function formatAmount(amount: number): string {
   return formatter.format(amount);
 }
 
+export function formatAmountWithoutCurrency(amount: number): string {
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    minimumFractionDigits: 2,
+  });
+
+  return formatter.format(amount);
+}
+
 export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
 
 export const removeSpecialCharacters = (value: string) => {
